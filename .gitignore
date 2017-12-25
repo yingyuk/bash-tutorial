@@ -1,0 +1,10 @@
+_book/
+node_modules/
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+# Github Pages
+deploy.sh

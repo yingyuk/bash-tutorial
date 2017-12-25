@@ -1,0 +1,24 @@
+{
+  "title": "Bash Tutorial",
+  "language": "zh-hans",
+  "root": "./docs",
+  "links": {
+    "sidebar": {
+      "Yingyu Blog": "http://www.yingyuk.com/"
+    }
+  },
+  "plugins": ["github", "editlink", "sharing"],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/yingyuk/bash-tutorial"
+    },
+    "editlink": {
+      "base": "https://github.com/yingyuk/bash-tutorial/edit/master/docs/",
+      "label": "编辑本页"
+    },
+    "sharing": {
+      "facebook": false,
+      "twitter": false
+    }
+  }
+}
