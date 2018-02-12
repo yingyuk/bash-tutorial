@@ -1,3 +1,5 @@
 # 目录
 
-* [介绍 Bash 脚本](README.md)
+* [介绍](README.md)
+* [什么是 Bash 脚本](part1/README.md)
+* [变量](part2/README.md)

@@ -4,9 +4,16 @@
 
 [Gitbook Read](https://yingyuk.github.io/bash-tutorial/)
 
-### Build
+### Usage
 
 ```sh
-make
+make serve
 # make help
+```
+
+### Delopy Github Pages
+
+```sh
+make build
+sh deploy.sh
 ```

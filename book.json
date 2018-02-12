@@ -4,7 +4,7 @@
   "root": "./docs",
   "links": {
     "sidebar": {
-      "Yingyu Blog": "http://www.yingyuk.com/"
+      "Yingyu Blog": "https://yingyuk.github.io"
     }
   },
   "plugins": ["github", "editlink", "sharing"],
