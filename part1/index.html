@@ -1,0 +1,327 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>什么是 Bash 脚本 · Bash Tutorial</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../part2/" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://yingyuk.github.io" target="_blank" class="custom-link">Yingyu Blog</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    什么是 Bash 脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../part2/">
+            
+                <a href="../part2/">
+            
+                    
+                    变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >什么是 Bash 脚本</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4ECB;&#x7ECD;-bash-&#x811A;&#x672C;">&#x4ECB;&#x7ECD; Bash &#x811A;&#x672C;</h1>
+<p>Bash &#x811A;&#x672C;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E00;&#x7CFB;&#x5217;&#x547D;&#x4EE4;&#x7684;&#x7EAF;&#x6587;&#x672C;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x4EFB;&#x4F55;&#x53EF;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0A;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x7684;&#x4E1C;&#x897F;&#x90FD;&#x53EF;&#x4EE5;&#x653E;&#x5230;&#x811A;&#x672C;&#x4E2D;&#xFF0C;&#x540C;&#x6837;&#x7684;&#xFF0C;&#x4EFB;&#x4F55;&#x4F60;&#x53EF;&#x4EE5;&#x653E;&#x5165;&#x811A;&#x672C;&#x7684;&#x4E1C;&#x897F;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E0A;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;&#x5E76;&#x4E14;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;&#x5E76;&#x6267;&#x884C;&#x811A;&#x672C;">&#x521B;&#x5EFA;&#x5E76;&#x6267;&#x884C;&#x811A;&#x672C;</h2>
+<pre><code class="lang-sh"><span class="hljs-comment"># &#x521B;&#x5EFA;&#x7F16;&#x5199;&#x811A;&#x672C;</span>
+tee ./myscript.sh &lt;&lt;-<span class="hljs-string">&apos;EOF&apos;</span>
+<span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># &#x8FD9;&#x662F;&#x4E00;&#x6761;&#x6CE8;&#x91CA;</span>
+
+<span class="hljs-built_in">echo</span> Hello World!
+EOF
+
+<span class="hljs-comment"># &#x6267;&#x884C;&#x811A;&#x672C; (&#x6CA1;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;)</span>
+./myscript.sh <span class="hljs-comment"># -bash: ./myscript.sh: Permission denied</span>
+
+<span class="hljs-comment"># &#x67E5;&#x770B;&#x811A;&#x672C;&#x6743;&#x9650;</span>
+ls <span class="hljs-_">-l</span> myscript.sh
+<span class="hljs-comment"># -rw-r--r--  1 yingyuwu  staff  17 Dec 25 22:17 myscript.sh</span>
+
+<span class="hljs-comment"># &#x4FEE;&#x6539;&#x811A;&#x672C;&#x6743;&#x9650;</span>
+chmod 755 myscript.sh
+
+<span class="hljs-comment"># &#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x4FEE;&#x6539;&#x6210;&#x529F;</span>
+ls <span class="hljs-_">-l</span> myscript.sh
+<span class="hljs-comment"># -rwxr-xr-x  1 yingyuwu  staff  17 Dec 25 22:17 myscript.sh</span>
+
+<span class="hljs-comment"># &#x518D;&#x6B21;&#x6267;&#x884C;&#x811A;&#x672C;</span>
+./myscript.sh
+<span class="hljs-comment"># Hello World</span>
+</code></pre>
+<p>&#x5907;&#x6CE8;:</p>
+<ol>
+<li>&#x6743;&#x9650; 755 &#x901A;&#x5E38;&#x7528;&#x4E8E;&#x811A;&#x672C;, &#x56E0;&#x4E3A;&#x5B83;&#x5141;&#x8BB8;&#x6240;&#x6709;&#x8005;&#x7F16;&#x5199;&#x6216;&#x4FEE;&#x6539;&#x811A;&#x672C;&#xFF0C;&#x5E76;&#x8BA9;&#x6240;&#x6709;&#x4EBA;&#x6267;&#x884C;&#x811A;&#x672C;&#x3002;&#x8BFB;&#x3001;&#x5199;&#x3001;&#x8FD0;&#x884C;&#x4E09;&#x9879;&#x6743;&#x9650;&#x53EF;&#x4EE5;&#x7528;&#x6570;&#x5B57;&#x8868;&#x793A;&#xFF0C;&#x5C31;&#x662F; r=4,w=2,x=1&#x3002;[read, write, execute]</li>
+<li><code>#</code>&#x53F7;&#x4EE5;&#x540E;&#x7684;&#x6240;&#x6709;&#x6587;&#x672C;&#x90FD;&#x4E0D;&#x4F1A;&#x6267;&#x884C;, &#x7528;&#x4E8E;&#x6CE8;&#x91CA;</li>
+</ol>
+<h3 id="&#x4E3A;&#x4EC0;&#x4E48;&#x52A0;-">&#x4E3A;&#x4EC0;&#x4E48;&#x52A0; <code>./</code></h3>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x547D;&#x4EE4; &#x6BD4;&#x5982; <code>ls</code> &#x65F6;, &#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5B83;&#x4EEC;&#x7684;&#x540D;&#x5B57;;
+&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#x65F6;, Bash &#x4F1A;&#x5728;&#x5B83;&#x7684; <code>$PATH</code>&#x4E2D;&#x53BB;&#x67E5;&#x627E;&#x662F;&#x5426;&#x6709;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;;
+&#x800C; myscript.sh &#x52A0;&#x4E0A;&#x4E86; <code>./</code> &#x662F;&#x4E3A;&#x4E86;&#x6307;&#x5B9A;&#x811A;&#x672C;&#x8DEF;&#x5F84;;</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span>
+/Users/yingyuwu/.nvm/versions/node/v8.9.1/bin:/usr/<span class="hljs-built_in">local</span>/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+<span class="hljs-comment"># /Users/yingyuwu/.nvm/versions/node/v8.9.1/bin</span>
+<span class="hljs-comment"># :/usr/local/bin</span>
+<span class="hljs-comment"># :/usr/bin</span>
+<span class="hljs-comment"># :/bin</span>
+<span class="hljs-comment"># :/usr/sbin</span>
+<span class="hljs-comment"># :/sbin</span>
+</code></pre>
+<h3 id="shebang"><code>#!</code> shebang</h3>
+<p><code>#!/bin/bash</code> &#x662F;&#x6307;&#x6B64;&#x811A;&#x672C;&#x4F7F;&#x7528;<code>/bin/bash</code> &#x6765;&#x89E3;&#x91CA;&#x6267;&#x884C;&#xFF0C;<code>#!</code>&#x662F;&#x7279;&#x6B8A;&#x7684;&#x8868;&#x793A;&#x7B26;&#xFF0C;&#x5176;&#x540E;&#x9762;&#x6839;&#x7684;&#x662F;&#x6B64;&#x89E3;&#x91CA;&#x6B64;&#x811A;&#x672C;&#x7684; shell &#x7684;&#x8DEF;&#x5F84;&#x3002;&#x683C;&#x5F0F;&#x5728;&#x8FD9;&#x91CC;&#x5F88;&#x91CD;&#x8981;&#x3002;</p>
+<p>shebang &#x5FC5;&#x987B;&#x5728;&#x6587;&#x4EF6;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#xFF08;&#x5373;&#x4F7F;&#x7B2C;&#x4E00;&#x884C;&#x662F;&#x7A7A;&#x767D;&#xFF0C;&#x7B2C;&#x4E8C;&#x884C;&#x4E5F;&#x4E0D;&#x884C;&#xFF09;&#x3002;&#x5728;&#x8FD9;&#x4E4B;&#x524D;&#x8FD8;&#x5FC5;&#x987B;&#x6CA1;&#x6709;&#x7A7A;&#x683C;&#x3002;</p>
+<p>&#x5F53;&#x6CA1;&#x6709; <code>#!/bin/bash</code> &#x8FD9;&#x4E00;&#x884C;, &#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x811A;&#x672C;&#x7684;;
+&#x4F46;&#x8FD9;&#x662F;&#x4E0D;&#x660E;&#x667A;&#x7684;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5728;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x4E0A;&#x8FD0;&#x884C; Bash shell&#xFF0C;&#x5E76;&#x4E14;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x6CA1;&#x6709; shebang &#x7684;&#x811A;&#x672C;&#xFF0C;&#x90A3;&#x4E48; Bash &#x4F1A;&#x8BA4;&#x4E3A;&#x5B83;&#x662F;&#x4E00;&#x4E2A; Bash &#x811A;&#x672C;;
+&#x7136;&#x800C;&#x6709;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;, &#x6587;&#x4EF6;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x662F; bash &#x811A;&#x672C;, &#x6CA1;&#x6709; shebang &#x5C31;&#x4F1A;&#x88AB; Bash shell &#x8FD0;&#x884C;, &#x8FD9;&#x4F1A;&#x5E26;&#x6765;&#x9690;&#x60A3;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 介绍">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../part2/" class="navigation navigation-next " aria-label="Next page: 变量">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"什么是 Bash 脚本","level":"1.2","depth":1,"next":{"title":"变量","level":"1.3","depth":1,"path":"part2/README.md","ref":"part2/README.md","articles":[]},"previous":{"title":"介绍","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","editlink","sharing"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/yingyuk/bash-tutorial"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/yingyuk/bash-tutorial/edit/master/docs/"},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Bash Tutorial","language":"zh-hans","links":{"sidebar":{"Yingyu Blog":"https://yingyuk.github.io"}},"gitbook":"*"},"file":{"path":"part1/README.md","mtime":"2018-02-12T04:16:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-12T08:55:15.157Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
