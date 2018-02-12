@@ -3,9 +3,6 @@
 *.mobi
 *.pdf
 
-# Github Pages
-deploy.sh
-
 # Folder
 **/.DS_Store
 **/node_modules/
